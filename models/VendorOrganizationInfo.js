@@ -3,16 +3,16 @@ const User = require("../models/userSchema");
 
 // Vendor can have multiple organizations
 const vendorOrganizationInfoSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  phone: { type: String, required: true },
-  address: { type: String, required: true },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } 
+  NameofOrganization: { type: String, required: true },
+  BuinessEmail: { type: String, required: true, unique: true },
+  OfficePhone: { type: String, required: true },
+  OrganizationAddress: { type: String, required: true },
+  RefuserID: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } 
 });
 
 
 const organizationDetailsSchema = new mongoose.Schema({
-  organizationId: {
+  ReforganizationId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'VendorOrganizationInfo',
     required: true

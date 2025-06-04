@@ -2,8 +2,8 @@ const  {VendorOrganizationInfo , OrganizationDetails } = require("../models/Vend
 
 const vendorsOrganizationInfo = async (req, res) => {
   try {
-    const { NameofOrganization, BuinessEmail, OfficePhone, OrganizationAddress, RefuserID } = req.body;
-    const existingMail = await VendorOrganizationInfo.findOne({ BuinessEmail });
+    const { NameofOrganization, BuisnessEmail, OfficePhone, OrganizationAddress, RefuserID } = req.body;
+    const existingMail = await VendorOrganizationInfo.findOne({ BuisnessEmail });
     if (existingMail) {
       return res.status(400).json({ message: "Business email already exists. Please try with another one." });
     }
@@ -12,7 +12,7 @@ const vendorsOrganizationInfo = async (req, res) => {
     }
     const newVendorOrganizationInfo = new VendorOrganizationInfo({
       NameofOrganization,
-      BuinessEmail,
+      BuisnessEmail,
       OfficePhone,
       OrganizationAddress,
       RefuserID
@@ -30,20 +30,20 @@ const vendorsOrganizationInfo = async (req, res) => {
 const addOrganizationDetails = async (req, res) => {
   try {
     const {
-      organizationId,
+      ReforganizationId,
       food,
       light,
       dj,
       manforce,
       customFields
     } = req.body;
-
-    if (!organizationId) {
+     console.log(ReforganizationId,food,light,dj,manforce,customFields)
+    if (!ReforganizationId) {
       return res.status(400).json({ message: "Organization ID is required" });
     }
 
     const newDetails = new OrganizationDetails({
-      organizationId,
+      ReforganizationId,
       food,
       light,
       dj,
